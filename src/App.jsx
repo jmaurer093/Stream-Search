@@ -265,7 +265,7 @@ const css = `
 
 export default function SearchSeekStream() {
   const [apiKey, setApiKey] = useState("");
-  const [savedKey, setSavedKey] = useState(import.meta?.env?.VITE_TMDB_KEY || "5ee7fc70df94b20e745e775aaab33997");
+  const [savedKey, setSavedKey] = useState(import.meta?.env?.VITE_TMDB_KEY || "");
   const [activeTab, setActiveTab] = useState("search");
 
   const [query, setQuery] = useState("");
@@ -460,6 +460,16 @@ export default function SearchSeekStream() {
                 </div>
               </div>
 
+              {/* VPN nudge on detail page */}
+              <div className="vpn-nudge">
+                <div className="vpn-nudge-text">
+                  📍 See it streaming in another country? <strong>A VPN lets you watch it from anywhere.</strong>
+                </div>
+                <a className="vpn-nudge-btn" href={VPN_AFFILIATE_URL} target="_blank" rel="noreferrer">
+                  🔒 Get {VPN_NAME} →
+                </a>
+              </div>
+
               {loadingProviders && <div className="loading"><div className="spinner"/><div className="loading-text">Finding all streaming services...</div></div>}
               {!loadingProviders && providerMap!==null && (
                 <>
@@ -633,14 +643,6 @@ export default function SearchSeekStream() {
         {/* ── FOOTER ── */}
         <footer className="site-footer">
           <div className="footer-inner">
-            <div className="footer-vpn-banner">
-              <div className="footer-vpn-text">
-                🌍 See it streaming in another country? <strong>A VPN lets you watch it from anywhere.</strong>
-              </div>
-              <a className="footer-vpn-link" href={VPN_AFFILIATE_URL} target="_blank" rel="noreferrer">
-                🔒 Get {VPN_NAME} →
-              </a>
-            </div>
             <div className="footer-bottom">
               © {new Date().getFullYear()} SearchSeekStream · Streaming data via <a href="https://www.justwatch.com" target="_blank" rel="noreferrer">JustWatch</a> / <a href="https://www.themoviedb.org" target="_blank" rel="noreferrer">TMDB</a>
               <br/>
