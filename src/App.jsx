@@ -442,7 +442,6 @@ export default function SearchSeekStream() {
               <a className="header-vpn-btn" href={VPN_AFFILIATE_URL} target="_blank" rel="noreferrer">
                 🔒 Get a VPN
               </a>
-              <button className="api-badge" onClick={()=>{setSavedKey("");setSelected(null);setResults([]);setDiscoverResults([]);}}>⚙ API Key</button>
             </div>
           </div>
 
