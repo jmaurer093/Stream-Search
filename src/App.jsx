@@ -176,7 +176,7 @@ const css = `
 
 export default function StreamFinder() {
   const [apiKey, setApiKey] = useState("");
-  const [savedKey, setSavedKey] = useState(import.meta?.env?.VITE_TMDB_KEY || "");
+  const [savedKey, setSavedKey] = useState(import.meta?.env?.VITE_TMDB_KEY || "5ee7fc70df94b20e745e775aaab33997");
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [selected, setSelected] = useState(null);
