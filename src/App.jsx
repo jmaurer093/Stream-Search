@@ -160,7 +160,7 @@ const css = `
 
 export default function StreamFinder() {
   const [apiKey, setApiKey] = useState("");
-  const [savedKey, setSavedKey] = useState("");
+  const [savedKey, setSavedKey] = useState(import.meta.env.VITE_TMDB_KEY || "");
   const [query, setQuery] = useState("");
   const [country, setCountry] = useState("US");
   const [results, setResults] = useState([]);
