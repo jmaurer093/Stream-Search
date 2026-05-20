@@ -460,16 +460,6 @@ export default function SearchSeekStream() {
                 </div>
               </div>
 
-              {/* VPN nudge on detail page */}
-              <div className="vpn-nudge">
-                <div className="vpn-nudge-text">
-                  📍 See it streaming in another country? <strong>A VPN lets you watch it from anywhere.</strong>
-                </div>
-                <a className="vpn-nudge-btn" href={VPN_AFFILIATE_URL} target="_blank" rel="noreferrer">
-                  🔒 Get {VPN_NAME} →
-                </a>
-              </div>
-
               {loadingProviders && <div className="loading"><div className="spinner"/><div className="loading-text">Finding all streaming services...</div></div>}
               {!loadingProviders && providerMap!==null && (
                 <>
