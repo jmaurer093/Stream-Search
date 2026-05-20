@@ -265,7 +265,7 @@ const css = `
 
 export default function SearchSeekStream() {
   const [apiKey, setApiKey] = useState("");
-  const [savedKey, setSavedKey] = useState(import.meta?.env?.VITE_TMDB_KEY || "5ee7fc70df94b20e745e775aaab33997");
+  const [savedKey, setSavedKey] = useState(import.meta?.env?.VITE_TMDB_KEY || "");
   const [activeTab, setActiveTab] = useState("search");
 
   const [query, setQuery] = useState("");
@@ -438,11 +438,7 @@ export default function SearchSeekStream() {
               <span className="logo-seek">Seek</span>
               <span className="logo-stream">Stream</span>
             </div>
-            <div className="header-right">
-              <a className="header-vpn-btn" href={VPN_AFFILIATE_URL} target="_blank" rel="noreferrer">
-                🔒 Get a VPN
-              </a>
-            </div>
+
           </div>
 
           {/* Detail view */}
