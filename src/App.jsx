@@ -361,7 +361,7 @@ const css = `
 
 export default function SearchSeekStream() {
   const [apiKey, setApiKey] = useState("");
-  const [savedKey, setSavedKey] = useState(import.meta?.env?.VITE_TMDB_KEY || "5ee7fc70df94b20e745e775aaab33997");
+  const [savedKey, setSavedKey] = useState(import.meta?.env?.VITE_TMDB_KEY || "");
   const [route, navigate] = useRoute();
   const [activeTab, setActiveTab] = useState("search");
 
