@@ -637,8 +637,8 @@ export default function SearchSeekStream() {
             </div>
             <div className="header-actions">
               <button className="header-list-btn" onClick={()=>{ setListsTab(true); navigate({page:"home"}); }}>
-                ★ My Lists
-                {(myList.length+watchlist.length)>0 && <span className="header-list-badge">{myList.length+watchlist.length}</span>}
+                ★ My List
+                {myList.length>0 && <span className="header-list-badge">{myList.length}</span>}
               </button>
             </div>
           </div>
@@ -717,9 +717,6 @@ export default function SearchSeekStream() {
                         <button className={`action-btn ${isInMyList(detailData.id)?"active":""}`} onClick={e=>toggleMyList(detailData,e)}>
                           {isInMyList(detailData.id)?"★ In My List":"☆ My List"}
                         </button>
-                        <button className={`action-btn ${isInWatchlist(detailData.id)?"active":""}`} onClick={e=>toggleWatchlist(detailData,e)}>
-                          {isInWatchlist(detailData.id)?"✓ Watchlisted":"+ Watchlist"}
-                        </button>
                         <button className="action-btn" onClick={shareTitle}>🔗 Share</button>
                       </div>
                     </div>
@@ -790,26 +787,16 @@ export default function SearchSeekStream() {
                 <button className={`tab ${activeTab==="search"&&!listsTab?"active":""}`} onClick={()=>{setActiveTab("search");setListsTab(false);}}>Title Search</button>
                 <button className={`tab ${activeTab==="discover"&&!listsTab?"active":""}`} onClick={()=>{setActiveTab("discover");setListsTab(false);}}>Discover</button>
                 <button className={`tab vpn-tab ${activeTab==="vpn"&&!listsTab?"active":""}`} onClick={()=>{setActiveTab("vpn");setListsTab(false);}}>🔒 VPN</button>
-                <button className={`tab ${listsTab?"active":""}`} onClick={()=>setListsTab(true)}>
-                  ★ My Lists {(myList.length+watchlist.length)>0?`(${myList.length+watchlist.length})`:""}
-                </button>
               </div>
 
               {/* ── MY LISTS ── */}
               {listsTab && (
                 <div className="list-page">
-                  <div className="list-tabs">
-                    <button className={`list-tab ${listSubTab==="mylist"?"active":""}`} onClick={()=>setListSubTab("mylist")}>★ My List ({myList.length})</button>
-                    <button className={`list-tab ${listSubTab==="watchlist"?"active":""}`} onClick={()=>setListSubTab("watchlist")}>✓ Watchlist ({watchlist.length})</button>
-                  </div>
-                  {listSubTab==="mylist" && (myList.length===0
+                  <div style={{fontSize:11,color:"var(--muted)",letterSpacing:"0.25em",textTransform:"uppercase",marginBottom:16}}>★ My List ({myList.length})</div>
+                  {myList.length===0
                     ? <div className="empty-list"><div className="empty-icon">☆</div><div className="empty-text">Your list is empty — tap ☆ on any title to save it.</div></div>
                     : <div className="results-grid">{myList.map(item=><ResultCard key={item.id} item={item}/>)}</div>
-                  )}
-                  {listSubTab==="watchlist" && (watchlist.length===0
-                    ? <div className="empty-list"><div className="empty-icon">📋</div><div className="empty-text">Your watchlist is empty — tap + Watchlist on any title.</div></div>
-                    : <div className="results-grid">{watchlist.map(item=><ResultCard key={item.id} item={item}/>)}</div>
-                  )}
+                  }
                 </div>
               )}
 
